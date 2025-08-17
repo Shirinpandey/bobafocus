@@ -14,12 +14,6 @@ BobaFocus is a **Flutter-based productivity app** designed to help users **manag
 
 ---
 
-## Screenshots
-
-*<img width="347" height="450" alt="image" src="https://github.com/user-attachments/assets/a5180be8-99f5-40c5-8607-00c24289750e" />*
-
----
-
 ## Getting Started
 
 ### Prerequisites
@@ -33,3 +27,18 @@ BobaFocus is a **Flutter-based productivity app** designed to help users **manag
 
 ```bash
 git clone https://github.com/your-username/bobafocus.git
+
+Navigate into the project directory:
+
+cd bobafocus
+
+
+Get the dependencies:
+
+flutter pub get
+
+
+Run the app on an emulator or connected device:
+
+flutter run
+
