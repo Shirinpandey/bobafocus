@@ -1,16 +1,25 @@
 # BobaFocus
 
-BobaFocus is a **Flutter-based productivity app** designed to help users **manage tasks and stay focused**. With a simple and elegant interface, it allows you to create checklists, track task completion, and visualize your progress efficiently.  
+🌟 **Project Overview**
+
+🧋 **App Name:** BobaFocus  
+🎯 **Core MVP Features:**
+
+- **Focus Timer** – Pomodoro-style timer to help you focus and stay productive.  
+- **To-Do List** – Track tasks, mark them as completed, and visualize progress.  
+- **Points System** – Earn points for completing tasks or focus sessions.  
+- **Simple Shop** – Spend points to buy items and customize your experience.  
+- **Café Display Scene** – Visual scene showing bought items and fun blobs.  
 
 ---
 
 ## Features
 
-- ✅ **Task Management** – Add, view, and check off tasks with ease.  
-- 📝 **Interactive Checklist** – Mark tasks as completed; completed tasks are visually struck through.  
-- 🎨 **Clean UI** – Beautifully designed using Flutter and Google Fonts for a minimal and aesthetically pleasing experience.  
-- ☕ **Custom Styling** – Tasks are displayed in styled containers with color-coded checkboxes.  
-- 🔧 **Extensible** – Easily add new features like task deadlines, categories, or reminders.  
+- ✅ Focus Timer with start/pause/reset functionality  
+- ✅ Interactive To-Do List with checkboxes and strike-through for completed tasks  
+- ✅ Earn and spend points in-app  
+- ✅ Simple Shop UI for purchasing items  
+- ✅ Café Display scene to visualize purchased items  
 
 ---
 
@@ -23,22 +32,9 @@ BobaFocus is a **Flutter-based productivity app** designed to help users **manag
 
 ### Installation
 
-1. Clone the repository:
-
 ```bash
 git clone https://github.com/your-username/bobafocus.git
-
-Navigate into the project directory:
-
 cd bobafocus
-
-
-Get the dependencies:
-
 flutter pub get
-
-
-Run the app on an emulator or connected device:
-
 flutter run
 
