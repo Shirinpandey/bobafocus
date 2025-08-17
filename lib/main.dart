@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'mainpage.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: const Color.fromARGB(255, 228, 178, 160),
+        // primaryColor: const Color.fromARGB(255, 228, 178, 160),
         textTheme: TextTheme(
           // Headers – handwritten style
           headlineLarge: GoogleFonts.patrickHand(
