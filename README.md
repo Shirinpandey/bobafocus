@@ -16,7 +16,7 @@ BobaFocus is a **Flutter-based productivity app** designed to help users **manag
 
 ## Screenshots
 
-*<img width="347" height="300" alt="image" src="https://github.com/user-attachments/assets/a5180be8-99f5-40c5-8607-00c24289750e" />*
+*<img width="347" height="450" alt="image" src="https://github.com/user-attachments/assets/a5180be8-99f5-40c5-8607-00c24289750e" />*
 
 ---
 
