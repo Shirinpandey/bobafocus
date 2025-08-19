@@ -8,8 +8,8 @@
 - **Focus Timer** – Pomodoro-style timer to help you focus and stay productive.  
 - **To-Do List** – Track tasks, mark them as completed, and visualize progress.  
 - **Points System** – Earn points for completing tasks or focus sessions.  
-- **Simple Shop** – Spend points to buy items and customize your experience.  
-- **Café Display Scene** – Visual scene showing bought items and fun blobs.  
+- **Simple Shop (In progress)** – Spend points to buy items and customize your experience.  
+- **Café Display Scene (In progress)** – Visual scene showing bought items and fun blobs.  
 
 ---
 
