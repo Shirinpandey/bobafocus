@@ -11,9 +11,12 @@ class FocusPage extends StatefulWidget {
 }
 
 class _MyFocusPageState extends State<FocusPage> {
-  static const maxMinutes = 2;
+  static const maxMinutes = 25;
   int seconds = maxMinutes * 60;
   Timer? timer;
+  int remainingSecs = 0;
+  bool isrunning = true;
+  bool pressedonce = false;
 
   String formatTime(int seconds) {
     int minutes = seconds ~/ 60;
@@ -21,18 +24,77 @@ class _MyFocusPageState extends State<FocusPage> {
     return '${minutes.toString().padLeft(2, '0')}:${secs.toString().padLeft(2, '0')}';
   }
 
-  void starttimer() {
-    if (timer != null && timer!.isActive) return;
-    timer = Timer.periodic(const Duration(seconds: 1), (_) {
-      if (!mounted) return;
+  Future<bool?> confirmstop() {
+    return showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: const Color.fromARGB(255, 195, 168, 158),
+          title: Text(
+            'Are you sure you want to stop brewing?',
+            style: TextStyle(fontSize: 18),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(true);
+              },
+              child: Text(
+                'Yes',
+                style: TextStyle(fontSize: 17, color: Colors.black),
+              ),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(false);
+              },
+              child: Text(
+                'No',
+                style: TextStyle(fontSize: 17, color: Colors.black),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> stoptimer() async {
+    bool? stopornot = await confirmstop();
+
+    if (stopornot == true && stopornot != null) {
+      timer?.cancel();
       setState(() {
-        if (seconds > 0) {
-          seconds--;
-        } else {
-          timer?.cancel();
-        }
+        isrunning = false;
+        seconds = maxMinutes * 60;
       });
-    });
+    }
+  }
+
+  void starttimer() {
+    if (isrunning) {
+      // Pause the timer
+      timer?.cancel();
+      setState(() {
+        isrunning = false;
+      });
+    } else {
+      // Start or resume the timer
+      timer = Timer.periodic(const Duration(seconds: 1), (_) {
+        if (!mounted) return;
+        setState(() {
+          if (seconds > 0) {
+            seconds--;
+          } else {
+            timer?.cancel();
+            isrunning = false;
+          }
+        });
+      });
+      setState(() {
+        isrunning = true;
+      });
+    }
   }
 
   @override
@@ -66,12 +128,16 @@ class _MyFocusPageState extends State<FocusPage> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               MaterialButton(
-                onPressed: starttimer,
+                onPressed: () {
+                  starttimer();
+                },
                 color: const Color.fromARGB(255, 212, 164, 150),
-                child: Text('START BREWING'),
+                child: Text(isrunning ? 'PAUSE BREWING' : 'START BREWING'),
               ),
               MaterialButton(
-                onPressed: () {},
+                onPressed: () async {
+                  stoptimer();
+                },
                 color: const Color.fromARGB(255, 212, 164, 150),
                 child: Text('STOP BREWING'),
               ),
@@ -89,7 +155,7 @@ class _MyFocusPageState extends State<FocusPage> {
       fit: StackFit.expand,
       children: [
         CircularProgressIndicator(
-          value: seconds / (maxMinutes * 60),
+          value: 1 - (seconds / (maxMinutes * 60)),
           strokeWidth: 8,
           backgroundColor: Colors.brown.shade100,
           valueColor: AlwaysStoppedAnimation<Color>(

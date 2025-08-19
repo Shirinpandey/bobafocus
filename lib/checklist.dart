@@ -62,6 +62,7 @@ class _ChecklistPageState extends State<ChecklistPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: createNewTask,
+        backgroundColor: const Color.fromARGB(255, 171, 140, 129),
         child: const Icon(Icons.add),
       ),
       body: ListView.builder(
